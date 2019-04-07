@@ -1,0 +1,52 @@
+#include<stdio.h>
+void printMaxActivities(int s[], int f[],int n )
+{
+    int i, j;
+
+    for(i=0;i<n;i++)
+    {
+         printf ("Following activities are selected n:");
+             printf("%d ", i);
+
+        for (j = 1; j < n; j++)
+    {
+
+        if (s[j] >= f[i])
+        {
+            printf ("%d ", j);
+            i = j;
+
+        }else{
+            printf("\n%d slot will clash with another activity:  %d", j,i);
+
+        }
+    }
+
+    }
+}
+
+int main()
+{
+    int s[10] ;
+    int f[10] ;
+    int i,elements;
+    printf("Enter elements: ");
+    scanf("%d",&elements);
+    printf("Start: ");
+    for(i=0; i<elements; i++)
+    {
+        scanf("%d",&s[i]);
+    }
+    printf("Finish: ");
+    for(i=0; i<elements; i++)
+    {
+        scanf("%d",&f[i]);
+    }
+    for(i=0;i<elements;i++)
+    {
+        printf("Activity: %d %d %d\n",i,s[i],f[i]);
+    }
+
+    printMaxActivities(s, f,elements);
+    return 0;
+}
